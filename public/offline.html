@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Takhirjanovich's Portfolio</title>
+
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #FAFBFC;
+        color: #264653;
+        font-family: sans-serif;
+        text-align: center;
+      }
+      .main {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+
+      .main .icon_wrapper .icon .path {
+        animation: icon_anim 10s 10s ease-in-out infinite;
+      }
+
+      .main .icon_wrapper .icon .line {
+        animation: line_anim 5s ease-in-out infinite;
+      }
+
+      @keyframes icon_anim {
+        0% {
+          stroke: #264653;
+        }
+        1% {
+          stroke: transparent;
+        }
+        2% {
+          stroke: #264653;
+        }
+        3% {
+          stroke: transparent;
+        }
+        4% {
+          stroke: #264653;
+        }
+      }
+
+      @keyframes line_anim {
+        0% {
+          transform: translate(-100%, -100%);
+          opacity: 0;
+        }
+        10% {
+          transform: translate(0, 0);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(0, 0);
+          opacity: 1;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .main .icon_wrapper .icon {
+          width: 5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="icon_wrapper">
+        <svg
+          width="131"
+          height="114"
+          viewBox="0 0 131 114"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon"
+        >
+          <path
+            d="M22.2686 22.2836C27.1332 19.0343 32.6937 16.9746 38.5012 16.2709C44.3086 15.5672 50.2002 16.2392 55.7 18.2326C61.1998 20.2261 66.1537 23.4851 70.1615 27.7465C74.1693 32.0078 77.1187 37.152 78.7715 42.7636C81.9033 39.5427 85.7782 37.1403 90.0558 35.7675C94.3335 34.3948 98.8828 34.0938 103.304 34.891C107.725 35.6882 111.883 37.5591 115.412 40.3394C118.94 43.1197 121.732 46.7242 123.542 50.8361C125.351 54.948 126.123 59.4415 125.79 63.9216C125.456 68.4016 124.027 72.7312 121.628 76.5296C119.23 80.3281 115.934 83.4793 112.033 85.7061C108.131 87.933 103.742 89.1673 99.2515 89.3008L90.1086 89.7579M9.28579 39.9293C7.76543 44.0252 6.9913 48.3604 7.00007 52.7293C7.00007 62.4287 10.8531 71.7308 17.7116 78.5892C24.5701 85.4477 33.8722 89.3008 43.5715 89.3008H57.2858"
+            stroke="#264653"
+            stroke-width="9.14286"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="path"
+          />
+          <path
+            d="M110.562 104.099L9.69437 3.23148C7.90967 1.44678 5.01611 1.44678 3.23141 3.23148C1.44672 5.01617 1.44672 7.90974 3.23141 9.69443L104.099 110.562C105.883 112.346 108.777 112.347 110.562 110.562C112.346 108.777 112.346 105.884 110.562 104.099Z"
+            fill="#264653"
+            class="line"
+          />
+        </svg>
+      </div>
+      <div class="content_wrapper">
+        <h2 class="title">You're offline now</h2>
+        <p class="text">Please go online to discover the Portfolio</p>
+      </div>
+    </div>
+  </body>
+</html>

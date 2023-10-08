@@ -1,0 +1,293 @@
+@import "../../styles/global.scss";
+
+.navbar {
+  visibility: visible;
+  height: $size-navbar;
+
+  @apply fixed top-0 left-0 w-full flex items-center select-none transition text-text-color;
+  z-index: $z-navbar;
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(238, 238, 238) 20%,
+    rgb(238, 238, 238) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-image-slice: 1;
+
+  .container {
+    @apply flex justify-between items-center;
+
+    .logo {
+      display: inline-block;
+      padding: 0.5rem 0;
+    }
+
+    .nav_list {
+      @apply mx-8 flex items-center relative;
+
+      .nav_item {
+        @apply mr-4;
+
+        .nav_link {
+          @apply p-4 inline-block capitalize hover:text-dark-text-color transition;
+
+          &.active {
+            @apply text-dark-text-color;
+          }
+        }
+      }
+
+      .projects_btn {
+        @apply flex items-center capitalize hover:text-dark-text-color transition p-4;
+
+        &.active {
+          @apply text-dark-text-color;
+
+          .icon {
+            transform: rotate(180deg);
+          }
+        }
+
+        .icon {
+          @apply ml-2 transition-transform;
+          width: 0.675rem;
+        }
+      }
+
+      .project_list {
+        visibility: hidden;
+        opacity: 0;
+
+        &.active {
+          visibility: visible;
+          opacity: 1;
+        }
+
+        @apply absolute top-full right-0 bg-white divide-y divide-gray-100 rounded-md shadow-md shadow-gray-100 transition text-dark-text-color;
+        z-index: $z-modal;
+        min-width: 15rem;
+        max-width: 25rem;
+
+        .project_item {
+          @apply p-1;
+
+          .project_link {
+            @apply py-1 px-2 flex w-full hover:bg-gray-100 rounded-md capitalize;
+
+            &.active {
+              @apply bg-gray-100 cursor-default;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.sticky {
+    background-color: rgba($color: #fff, $alpha: 0.9);
+    backdrop-filter: blur($blur);
+    border-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgb(255, 255, 255) 30%,
+      rgb(255, 255, 255) 70%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+}
+
+.navbar_mobile {
+  display: none;
+  visibility: hidden;
+}
+
+@media screen and (max-width: 1024px) {
+  .navbar {
+    display: none;
+    visibility: hidden;
+  }
+
+  .navbar_mobile {
+    display: flex;
+    visibility: visible;
+
+    @apply fixed top-0 left-0 w-full items-center select-none text-center;
+    z-index: $z-navbar;
+    height: $size-navbar;
+    background-color: rgba($color: #fff, $alpha: 0.8);
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgb(238, 238, 238) 20%,
+      rgb(238, 238, 238) 80%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    border-image-slice: 1;
+
+    &::after {
+      @apply absolute top-0 left-0 right-0 bottom-0;
+      content: "";
+      backdrop-filter: blur($blur);
+      z-index: -1;
+    }
+
+    .container {
+      @apply flex items-center justify-between;
+
+      .nav_toggle {
+        @apply text-dark-text-color hover:text-dark-text-color rounded-md;
+
+        &.active {
+          @apply text-dark-text-color;
+        }
+      }
+    }
+
+    .sidebar_wrapper {
+      visibility: hidden;
+
+      @apply absolute left-0 top-full w-full flex;
+      z-index: $z-sidebar;
+      height: calc(100vh - $size-navbar + 1px);
+
+      .sidebar_overlay {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(-$size-sidebar);
+
+        @apply flex-1 cursor-pointer;
+        background-color: rgba($color: #000000, $alpha: 0.3);
+        backdrop-filter: blur($blur);
+        transition: 0.25s ease;
+      }
+
+      .sidebar {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(100%);
+
+        @apply border-t border-gray-100 pt-12 pb-24 px-8 overflow-y-auto flex flex-col justify-between capitalize;
+        background-color: rgba($color: #fff, $alpha: 0.9);
+        backdrop-filter: blur($blur);
+        max-width: $size-sidebar;
+        width: 100%;
+        transition: 0.3s ease;
+
+        .links {
+          @apply flex overflow-x-hidden;
+
+          .nav_list {
+            visibility: visible;
+            transform: translateX(0);
+
+            @apply flex flex-col divide-y divide-gray-100 flex-1 min-w-full transition;
+
+            .nav_item {
+              @apply p-1 w-full;
+
+              .nav_link {
+                @apply py-2 px-4 w-full flex justify-center items-center hover:bg-gray-100 rounded-md capitalize;
+
+                &.active {
+                  @apply cursor-default bg-gray-100;
+                }
+
+                .icon {
+                  @apply ml-2 transition-all;
+                  transform: rotate(-90deg);
+                  width: 0.675rem;
+                }
+
+                &:hover {
+                  .icon {
+                    @apply ml-4;
+                  }
+                }
+              }
+            }
+          }
+
+          .project_list {
+            visibility: hidden;
+            transform: translateX(100%);
+
+            @apply relative flex flex-col divide-y divide-gray-100 min-w-full transition bg-white border border-gray-200 rounded-md;
+
+            .project_item {
+              @apply p-1 w-full;
+
+              .project_link {
+                @apply py-2 px-4 w-full flex justify-center items-center hover:bg-gray-100 rounded-md capitalize;
+
+                &.active {
+                  @apply cursor-default bg-gray-100;
+                }
+
+                .icon {
+                  @apply ml-2 transition-all;
+                  transform: rotate(-90deg);
+                  width: 0.675rem;
+                }
+
+                &:hover {
+                  .icon {
+                    @apply ml-4;
+                  }
+                }
+              }
+
+              .back {
+                @apply py-3 border border-gray-200;
+
+                .back_icon {
+                  width: 0.675rem;
+                  transform: rotate(90deg);
+                }
+              }
+            }
+          }
+
+          &.active {
+            .nav_list {
+              visibility: hidden;
+              transform: translateX(-100%);
+            }
+            .project_list {
+              visibility: visible;
+              transform: translateX(-100%);
+            }
+          }
+        }
+      }
+
+      &.active {
+        visibility: visible;
+
+        .sidebar_overlay {
+          visibility: visible;
+          opacity: 1;
+          transform: unset;
+        }
+
+        .sidebar {
+          visibility: visible;
+          opacity: 1;
+          transform: unset;
+        }
+      }
+    }
+
+    &.sticky {
+      border-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgb(255, 255, 255) 30%,
+        rgb(255, 255, 255) 70%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "./variables.scss";
+
+* {
+  -webkit-tap-highlight-color: transparent;
+
+  &::selection {
+    color: black;
+    background-color: rgba(125, 196, 255, 0.546);
+  }
+}
+
+body {
+  @apply bg-body-color text-dark-text-color text-center sm:text-left;
+  font-family: $font-secondary;
+}
+
+button {
+  cursor: pointer;
+  user-select: none;
+}
+
+.layout {
+  @apply flex flex-col justify-between min-h-screen;
+  padding-top: 92px;
+
+  .main {
+    @apply flex-1;
+  }
+}
+
+// Resusable classes
+.container {
+  max-width: $size-container;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}

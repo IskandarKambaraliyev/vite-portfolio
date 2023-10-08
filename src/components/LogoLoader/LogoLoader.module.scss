@@ -1,0 +1,58 @@
+@import "../../styles/global.scss";
+
+.LogoLoader {
+  @apply flex items-center justify-center min-h-screen bg-body-color;
+
+  .logo_icon {
+
+    path {
+      @apply fill-green-color;
+    }
+
+    .path_1 {
+      transform: scale(1.41) translateX(-38%);
+      animation: LogoLoaderAnim1 2.5s ease-in-out infinite;
+    }
+
+    .path_2 {
+      transform: scale(1.41) translateY(-28.9%) translateX(9%);
+      animation: LogoLoaderAnim2 2.5s ease-in-out infinite;
+    }
+
+    @keyframes LogoLoaderAnim1 {
+      0% {
+        transform: scale(1.41) translateX(-38%);
+      }
+      25% {
+        transform: scale(1.41) translateX(-38%);
+      }
+      50% {
+        transform: scale(1) translateX(0);
+      }
+      75% {
+        transform: scale(1) translateX(0);
+      }
+      100% {
+        transform: scale(1.41) translateX(-38%);
+      }
+    }
+
+    @keyframes LogoLoaderAnim2 {
+      0% {
+        transform: scale(1.41) translateY(-28.9%) translateX(9%);
+      }
+      25% {
+        transform: scale(1.41) translateY(-28.9%) translateX(9%);
+      }
+      50% {
+        transform: scale(1) translateX(0);
+      }
+      75% {
+        transform: scale(1) translateX(0);
+      }
+      100% {
+        transform: scale(1.41) translateY(-28.9%) translateX(9%);
+      }
+    }
+  }
+}

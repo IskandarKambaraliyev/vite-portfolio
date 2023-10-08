@@ -1,0 +1,9 @@
+@import "../../styles/global.scss";
+
+.linkButton {
+  @apply py-4 px-6 rounded-md bg-dark-text-color text-white flex items-center justify-center w-max font-semibold select-none tracking-widest hover:opacity-90;
+
+  .icon {
+    @apply ml-2;
+  }
+}

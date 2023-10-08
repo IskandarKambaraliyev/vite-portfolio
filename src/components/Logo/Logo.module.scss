@@ -1,0 +1,41 @@
+@import "../../styles/global.scss";
+
+.logo {
+  @apply flex items-center;
+
+  .logo_icon {
+    margin-left: -1rem;
+
+    .path_1 {
+      animation: logoAnim1 1.5s ease-in-out forwards;
+    }
+
+    .path_2 {
+      animation: logoAnim2 1.5s ease-in-out forwards;
+    }
+
+    @keyframes logoAnim1 {
+      0% {
+        transform: scale(1.41) translateX(-38%);
+      }
+      50% {
+        transform: scale(1.41) translateX(-38%);
+      }
+      100% {
+        transform: scale(1) translateX(0);
+      }
+    }
+
+    @keyframes logoAnim2 {
+      0% {
+        transform: scale(1.41) translateY(-28.9%);
+      }
+      50% {
+        transform: scale(1.41) translateY(-28.9%);
+      }
+      100% {
+        transform: scale(1) translateX(0);
+      }
+    }
+  }
+}

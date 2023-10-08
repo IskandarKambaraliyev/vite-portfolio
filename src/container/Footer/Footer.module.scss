@@ -1,0 +1,28 @@
+@import "../../styles/global.scss";
+
+.footer {
+  @apply py-20 bg-dark-text-color text-light-text-color;
+
+  .container {
+    @apply flex flex-wrap justify-between;
+
+    .logo {
+      @apply h-max w-max;
+    }
+
+    .footer_list {
+      @apply flex flex-col;
+
+      .footer_item {
+        
+        .footer_link {
+          @apply p-2 w-full inline-block hover:text-white capitalize select-none;
+
+          &.active {
+            @apply text-white;
+          }
+        }
+      }
+    }
+  }
+}
