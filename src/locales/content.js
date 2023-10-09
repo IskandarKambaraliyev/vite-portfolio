@@ -1,4 +1,4 @@
-import pagesHomeBannerImg from "../assets/Images/pages/Home/banner.png";
+import pagesHomeBannerImg from "../assets/Images/pages/Home/banner.jpg";
 import pagesHomeBannerBorder from "../assets/Images/pages/Home/banner-border.svg";
 
 const content = {
