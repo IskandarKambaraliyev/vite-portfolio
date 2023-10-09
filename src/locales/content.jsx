@@ -1,5 +1,3 @@
-import pagesHomeBannerImg from "../assets/Images/pages/Home/banner.jpg";
-import pagesHomeBannerBorder from "../assets/Images/pages/Home/banner-border.svg";
 
 const content = {
   birthDate: "19.12.2002",
@@ -28,14 +26,14 @@ const content = {
       ]
     },
   },
-  pages: {
-    home: {
-      banner: {
-        img: pagesHomeBannerImg,
-        border: pagesHomeBannerBorder,
-      }
-    }
-  },
+  // pages: {
+  //   home: {
+  //     banner: {
+  //       img: pagesHomeBannerImg,
+  //       border: pagesHomeBannerBorder,
+  //     }
+  //   }
+  // },
 };
 
 export default content;
