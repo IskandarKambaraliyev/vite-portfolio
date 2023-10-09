@@ -8,9 +8,11 @@ import { LanguageContext } from "../../../../context/LanguageProvider";
 import useAgeCalculator from "../../../../hooks/useAgeCalculator";
 import { LinkButton } from "../../../../components";
 
+import pagesHomeBannerImg from "../../../../assets/Images/Pages/Home/banner.jpg";
+import pagesHomeBannerBorder from "../../../../assets/Images/Pages/Home/banner-border.svg";
+
 const Banner = () => {
   const { dictionary } = useContext(LanguageContext);
-  const bannerContent = content.pages.home.banner;
   const age = useAgeCalculator(content.birthDate);
 
   const [cursorPosition, setCursorPosition] = useState({ x: -68, y: -68 });
@@ -34,17 +36,17 @@ const Banner = () => {
       />
       <div className={styles.banner_wrapper}>
         <div className={styles.img_wrapper}>
-          <img src={bannerContent.img} className={styles.img} alt="banner" />
+          <img src={pagesHomeBannerImg} className={styles.img} alt="banner" />
           <img
-            src={bannerContent.border}
+            src={pagesHomeBannerBorder}
             className={styles.border}
             alt="banner"
           />
         </div>
         <div className={styles.img_wrapper}>
-          <img src={bannerContent.img} className={styles.img} alt="banner" />
+          <img src={pagesHomeBannerImg} className={styles.img} alt="banner" />
           <img
-            src={bannerContent.border}
+            src={pagesHomeBannerBorder}
             className={styles.border}
             alt="banner"
           />
